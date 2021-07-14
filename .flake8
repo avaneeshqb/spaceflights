@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 88
+per-file-ignores =
+    scripts/pi_extract/main.py:F405, F403, E402
+    scripts/pi_extract/pi_afsdk_point.py:F405, F403, E402

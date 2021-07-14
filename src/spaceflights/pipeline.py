@@ -28,13 +28,10 @@
 
 """Construction of the master pipeline.
 """
-from typing import Dict
-
 from kedro.pipeline import Pipeline
-
 from spaceflights.pipelines.data_engineering import pipeline as de
 from spaceflights.pipelines.data_science import pipeline as ds
-
+from typing import Dict
 
 
 def create_pipelines(**kwargs) -> Dict[str, Pipeline]:

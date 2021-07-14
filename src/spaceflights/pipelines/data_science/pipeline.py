@@ -32,7 +32,6 @@ generated using Kedro 0.16.4
 """
 
 from kedro.pipeline import Pipeline, node
-
 from spaceflights.pipelines.data_science.nodes import (
     evaluate_model,
     split_data,

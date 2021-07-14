@@ -27,24 +27,23 @@
 # limitations under the License.
 
 import logging
-from typing import Dict, List
-
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+from typing import Dict, List
 
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> List:
     """Splits data into training and test sets.
 
-        Args:
-            data: Source data.
-            parameters: Parameters defined in parameters.yml.
+    Args:
+        data: Source data.
+        parameters: Parameters defined in parameters.yml.
 
-        Returns:
-            A list containing split data.
+    Returns:
+        A list containing split data.
 
     """
     X = data[
@@ -67,12 +66,12 @@ def split_data(data: pd.DataFrame, parameters: Dict) -> List:
 def train_model(X_train: np.ndarray, y_train: np.ndarray) -> LinearRegression:
     """Train the linear regression model.
 
-        Args:
-            X_train: Training data of independent features.
-            y_train: Training data for price.
+    Args:
+        X_train: Training data of independent features.
+        y_train: Training data for price.
 
-        Returns:
-            Trained model.
+    Returns:
+        Trained model.
 
     """
     regressor = LinearRegression()
@@ -83,10 +82,10 @@ def train_model(X_train: np.ndarray, y_train: np.ndarray) -> LinearRegression:
 def evaluate_model(regressor: LinearRegression, X_test: np.ndarray, y_test: np.ndarray):
     """Calculate the coefficient of determination and log the result.
 
-        Args:
-            regressor: Trained model.
-            X_test: Testing data of independent features.
-            y_test: Testing data for price.
+    Args:
+        regressor: Trained model.
+        X_test: Testing data of independent features.
+        y_test: Testing data for price.
 
     """
     y_pred = regressor.predict(X_test)

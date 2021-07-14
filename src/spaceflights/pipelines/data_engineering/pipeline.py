@@ -1,9 +1,10 @@
-from kedro.pipeline import node, Pipeline
+from kedro.pipeline import Pipeline, node
 from spaceflights.pipelines.data_engineering.nodes import (
+    create_master_table,
     preprocess_companies,
     preprocess_shuttles,
-    create_master_table
 )
+
 
 def create_pipeline(**kwargs):
     return Pipeline(
@@ -25,6 +26,6 @@ def create_pipeline(**kwargs):
                 inputs=["preprocessed_shuttles", "preprocessed_companies", "reviews"],
                 outputs="master_table",
                 name="master_table",
-                ),
+            ),
         ]
     )

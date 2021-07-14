@@ -28,12 +28,9 @@
 
 """Command line tools for manipulating a Kedro project.
 Intended to be invoked via `kedro`."""
+import click
 import os
 from itertools import chain
-from pathlib import Path
-from typing import Dict, Iterable, Tuple
-
-import click
 from kedro.framework.cli import main as kedro_main
 from kedro.framework.cli.catalog import catalog as catalog_group
 from kedro.framework.cli.jupyter import jupyter as jupyter_group
@@ -42,6 +39,8 @@ from kedro.framework.cli.project import project_group
 from kedro.framework.cli.utils import KedroCliError, env_option, split_string
 from kedro.framework.context import load_context
 from kedro.utils import load_obj
+from pathlib import Path
+from typing import Dict, Iterable, Tuple
 
 CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 
@@ -102,7 +101,7 @@ def _reformat_load_versions(  # pylint: disable=unused-argument
     ctx, param, value
 ) -> Dict[str, str]:
     """Reformat data structure from tuple to dictionary for `load-version`.
-        E.g ('dataset1:time1', 'dataset2:time2') -> {"dataset1": "time1", "dataset2": "time2"}.
+    E.g ('dataset1:time1', 'dataset2:time2') -> {"dataset1": "time1", "dataset2": "time2"}.
     """
     load_versions_dict = {}
 

@@ -18,10 +18,10 @@ def _parse_money(x):
 def preprocess_companies(companies: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data for companies.
 
-        Args:
-            companies: Source data.
-        Returns:
-            Preprocessed data.
+    Args:
+        companies: Source data.
+    Returns:
+        Preprocessed data.
 
     """
 
@@ -35,10 +35,10 @@ def preprocess_companies(companies: pd.DataFrame) -> pd.DataFrame:
 def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data for shuttles.
 
-        Args:
-            shuttles: Source data.
-        Returns:
-            Preprocessed data.
+    Args:
+        shuttles: Source data.
+    Returns:
+        Preprocessed data.
 
     """
     shuttles["d_check_complete"] = shuttles["d_check_complete"].apply(_is_true)
@@ -57,12 +57,12 @@ def create_master_table(
 ) -> pd.DataFrame:
     """Combines all data to create a master table.
 
-        Args:
-            shuttles: Preprocessed data for shuttles.
-            companies: Preprocessed data for companies.
-            reviews: Source data for reviews.
-        Returns:
-            Master table.
+    Args:
+        shuttles: Preprocessed data for shuttles.
+        companies: Preprocessed data for companies.
+        reviews: Source data for reviews.
+    Returns:
+        Master table.
 
     """
     rated_shuttles = shuttles.merge(reviews, left_on="id", right_on="shuttle_id")

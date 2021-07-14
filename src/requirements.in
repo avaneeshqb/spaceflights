@@ -13,5 +13,6 @@ pytest~=5.0
 wheel==0.32.2
 nbconvert==5.6.1
 scikit-learn==0.23.1
+pre-commit>=2.10.1
 #Adding below to set to a lower version as pip-compile picks the highest version
 pandas-gbq==0.13.2

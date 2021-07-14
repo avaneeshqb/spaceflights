@@ -46,10 +46,8 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import re
-
 from kedro.framework.cli.utils import find_stylesheets
 from recommonmark.transform import AutoStructify
-
 from spaceflights import __version__ as release
 
 # -- Project information -----------------------------------------------------

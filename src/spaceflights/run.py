@@ -27,13 +27,11 @@
 # limitations under the License.
 
 """Application entry point."""
-from pathlib import Path
-from typing import Dict
-
 from kedro.framework.context import KedroContext, load_package_context
 from kedro.pipeline import Pipeline
-
+from pathlib import Path
 from spaceflights.pipeline import create_pipelines
+from typing import Dict
 
 
 class ProjectContext(KedroContext):
