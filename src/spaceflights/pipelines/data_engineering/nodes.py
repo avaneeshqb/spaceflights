@@ -50,3 +50,27 @@ def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
     shuttles["price"] = shuttles["price"].apply(_parse_money)
 
     return shuttles
+
+
+def create_master_table(
+    shuttles: pd.DataFrame, companies: pd.DataFrame, reviews: pd.DataFrame
+) -> pd.DataFrame:
+    """Combines all data to create a master table.
+
+        Args:
+            shuttles: Preprocessed data for shuttles.
+            companies: Preprocessed data for companies.
+            reviews: Source data for reviews.
+        Returns:
+            Master table.
+
+    """
+    rated_shuttles = shuttles.merge(reviews, left_on="id", right_on="shuttle_id")
+
+    with_companies = rated_shuttles.merge(
+        companies, left_on="company_id", right_on="id"
+    )
+
+    master_table = with_companies.drop(["shuttle_id", "company_id"], axis=1)
+    master_table = master_table.dropna()
+    return master_table
