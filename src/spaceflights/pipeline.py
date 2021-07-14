@@ -28,10 +28,12 @@
 
 """Construction of the master pipeline.
 """
-
 from typing import Dict
 
 from kedro.pipeline import Pipeline
+
+from spaceflights.pipelines.data_engineering import pipeline as de
+
 
 def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
     """Create the project's pipeline.
@@ -43,5 +45,9 @@ def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
         A mapping from a pipeline name to a ``Pipeline`` object.
 
     """
+    de_pipeline = de.create_pipeline()
 
-    return {"__default__": Pipeline([])}
+    return {
+        "de": de_pipeline,
+        "__default__": de_pipeline,
+    }
