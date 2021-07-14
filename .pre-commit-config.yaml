@@ -1,4 +1,4 @@
-default_stages: [push, manual]
+default_stages: [commit, merge-commit, push, manual]
 files: src/
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -41,5 +41,6 @@ repos:
         name: pytest-check
         entry: pytest
         language: system
+        stages: [push]
         pass_filenames: false
         always_run: true
