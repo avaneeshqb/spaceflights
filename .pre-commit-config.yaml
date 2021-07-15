@@ -1,4 +1,4 @@
-default_stages: [commit, merge-commit, push, manual]
+default_stages: [commit, merge-commit, manual]
 files: src/
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -35,13 +35,12 @@ repos:
     hooks:
       - id: isort
         name: isort (python
-#TODO: pytest doesn't run on push
   - repo: local
     hooks:
       - id: pytest-check
         name: pytest-check
-        entry: pytest
+        entry: python -m pytest
         language: system
-        stages: [push]
+        stages: [push, manual]
         pass_filenames: false
         always_run: true
