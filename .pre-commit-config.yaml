@@ -40,8 +40,8 @@ repos:
     hooks:
       - id: pytest-check
         name: pytest-check
-        entry: pytest
+        entry: python -m pytest
         language: system
-        stages: [push]
+        stages: [push, manual]
         pass_filenames: false
         always_run: true
