@@ -1,4 +1,4 @@
-# spaceflights
+# spaceflights ![main](https://github.com/avaneeshqb/spaceflights/actions/workflows/github-actions.yml/badge.svg?branch=main)
 
 ## Overview
 
