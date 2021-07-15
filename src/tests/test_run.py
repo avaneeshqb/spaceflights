@@ -47,7 +47,7 @@ def project_context():
 
 class TestProjectContext:
     def test_project_name(self, project_context):
-        assert project_context.project_name == "spaceflights"
+        assert project_context.project_name == "spaceflight"
 
     def test_project_version(self, project_context):
         assert project_context.project_version == "0.16.3"
