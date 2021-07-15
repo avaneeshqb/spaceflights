@@ -10,7 +10,7 @@ kedro new
 
 Take a look at the [documentation](https://kedro.readthedocs.io) to get started.
 
-## Rules and guidelines
+## Rules and guidees
 
 In order to get the best out of the template:
 
@@ -48,7 +48,12 @@ kedro test
 
 To configure the coverage threshold, please have a look at the file `.coveragerc`.
 
-
+## This project uses pre-commit hooks to lint your code before commit
+Linter checks are done by default and tests are run before push. To setup pre-commit locally run the following commands
+```
+pre-commit install  # installs .git/hooks/pre-commit
+pre-commit install --hook-type pre-push  # installs .git/hooks/pre-push
+```
 ## Working with Kedro from notebooks
 
 In order to use notebooks in your Kedro project, you need to install Jupyter:
