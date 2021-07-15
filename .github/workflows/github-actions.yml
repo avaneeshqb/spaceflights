@@ -1,5 +1,15 @@
 name: CI tests
-on: [pull_request]
+on: 
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'
+  pull_request:
+    branches:
+      - '**'
+    paths:
+      - '**.py'
 jobs:
   build:
     runs-on: ubuntu-latest
