@@ -54,6 +54,10 @@ Linter checks are done by default and tests are run before push. To setup pre-co
 pre-commit install  # installs .git/hooks/pre-commit
 pre-commit install --hook-type pre-push  # installs .git/hooks/pre-push
 ```
+You can also run all any time hooks by running:
+```
+pre-commit run --all-files --verbose --hook-stage manual
+```
 ## Working with Kedro from notebooks
 
 In order to use notebooks in your Kedro project, you need to install Jupyter:
