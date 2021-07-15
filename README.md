@@ -22,7 +22,8 @@ In order to get the best out of the template:
 
 ## Installing dependencies
 
-Declare any dependencies in `src/requirements.txt` for `pip` installation and `src/environment.yml` for `conda` installation.
+Declare any dependencies in `src/requirements.in` for `pip` installation and `src/environment.yml` for `conda` installation. 
+For pip you need to run either `pip-compile` or `kedro build reqs` before running kedro install. Also look at Building the project requirements section below.
 
 To install them, run:
 
