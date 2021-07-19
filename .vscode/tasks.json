@@ -1,0 +1,49 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // Kedro tasks
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install",
+            "type": "shell",
+            "command": "/opt/anaconda3/envs/aries_new/bin/kedro/",
+            "args": [
+                "install"
+            ]
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "group": {
+                "kind": "test",
+                "isDefault": true,
+            },
+            "command": "/opt/anaconda3/envs/spaceflights_k16.4/bin/kedro",
+            "args": [
+                "test"
+            ]
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "kedro",
+            "args": [
+                "run"
+            ]
+        },
+
+        // This is the default build task
+        {
+            "label": "Package",
+            "type": "shell",
+            "command": "/opt/anaconda3/envs/aries_new/bin/kedro/",
+            "args": [
+                "package"
+            ],
+            // Will run `Test` before packaging
+            "dependsOn": [
+                "Test"
+            ]
+        }
+    ]
+}
