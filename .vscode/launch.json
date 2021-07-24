@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Kedro Run",
+            "type": "python",
+            "request": "launch",
+            "justMyCode": false,
+            // "program": "${workspaceFolder}/src/techmax/run.py",
+            "console": "integratedTerminal",
+            "module": "kedro",
+            "args": ["run", "--pipeline", "dcu_live","--config", "config.yml"]
+            //, ci_retraining dcu_live_ci dcu_retraining
+            
+              //  
+            // Any other arguments should be passed as a comma-seperated-list
+            // e.g "args": ["run", "--pipeline", "pipeline_name"]
+        }
+    ]
+}
+

@@ -34,3 +34,22 @@ Kedro recommends using `pytest` framework, more info about it can be found
 in the official documentation:
 https://docs.pytest.org/en/latest/getting-started.html
 """
+
+
+# from kedro.runner import SequentialRunner
+# from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
+
+# from kedro.io import DataCatalog, MemoryDataSet
+# catalog = DataCatalog({
+#     'basic_data': MemoryDataSet()
+# })
+# catalog.save('basic_data', basic_data)
+
+
+# def test_preproc_pipeline():
+#     runner = SequentialRunner()
+#     output_name = 'outputs'
+
+#     pipeline = create_pipeline(inputs='basic_data', outputs=output_name)
+
+#     pipeline_output = runner.run(pipeline, basic_catalog)
