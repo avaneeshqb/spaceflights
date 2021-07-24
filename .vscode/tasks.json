@@ -6,7 +6,7 @@
         {
             "label": "Install",
             "type": "shell",
-            "command": "/opt/anaconda3/envs/aries_new/bin/kedro/",
+            "command": "/opt/anaconda3/envs/spaceflights_k16/bin/kedro/",
             "args": [
                 "install"
             ]
@@ -31,12 +31,11 @@
                 "run"
             ]
         },
-
         // This is the default build task
         {
             "label": "Package",
             "type": "shell",
-            "command": "/opt/anaconda3/envs/aries_new/bin/kedro/",
+            "command": "/opt/anaconda3/envs/spaceflights_k16/bin/kedro/",
             "args": [
                 "package"
             ],
