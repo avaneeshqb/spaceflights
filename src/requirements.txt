@@ -188,8 +188,12 @@ jupyterlab-widgets==1.0.0
     # via ipywidgets
 jupyterlab==0.31.1
     # via -r src/requirements.in
-kedro[pandas]==0.16.4
+kedro-docker==0.2.2
     # via -r src/requirements.in
+kedro[pandas]==0.16.4
+    # via
+    #   -r src/requirements.in
+    #   kedro-docker
 markupsafe==2.0.1
     # via jinja2
 matplotlib-inline==0.1.2
@@ -368,6 +372,8 @@ scikit-learn==0.23.1
     # via -r src/requirements.in
 scipy==1.7.0
     # via scikit-learn
+semver==2.13.0
+    # via kedro-docker
 send2trash==1.7.1
     # via notebook
 six==1.16.0
