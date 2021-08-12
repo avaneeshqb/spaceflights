@@ -44,6 +44,7 @@ def test__parse_money():
 
 @pytest.fixture()
 def companies_raw():
+    """Mocker Companies Raw pandas Dataframe"""
     df = pd.DataFrame(
         {
             "iata_approved": ["t", "f", "t", "g"],
@@ -66,6 +67,7 @@ def test_preprocess_companies(companies_raw):
 
 @pytest.fixture()
 def shuttles_raw():
+    """Mocker shuttles Raw pandas Dataframe"""
     df = pd.DataFrame(
         {
             "d_check_complete": ["t", "f", "t", "t"],
