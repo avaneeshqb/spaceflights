@@ -18,7 +18,7 @@
                 "kind": "test",
                 "isDefault": true,
             },
-            "command": "/opt/anaconda3/envs/spaceflights_k16.4/bin/kedro",
+            "command": "/opt/anaconda3/envs/sp_flights16/bin/kedro",
             "args": [
                 "test"
             ]

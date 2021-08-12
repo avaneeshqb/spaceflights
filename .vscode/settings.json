@@ -1,6 +1,6 @@
 {
     "telemetry.enableCrashReporter": false,
-    "python.pythonPath": "/opt/anaconda3/envs/spaceflights_k16.4/bin/python",
+    "python.pythonPath": "/opt/anaconda3/envs/sp_flights16/bin/python",
     "terminal.integrated.env.osx": {
         "PYTHONPATH": "${workspaceFolder}/src",
     },
