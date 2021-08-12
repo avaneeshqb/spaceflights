@@ -36,20 +36,36 @@ https://docs.pytest.org/en/latest/getting-started.html
 """
 
 
-# from kedro.runner import SequentialRunner
-# from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
+from kedro.runner import SequentialRunner
+from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
 
-# from kedro.io import DataCatalog, MemoryDataSet
-# catalog = DataCatalog({
-#     'basic_data': MemoryDataSet()
-# })
-# catalog.save('basic_data', basic_data)
+from kedro.io import DataCatalog, MemoryDataSet
+import pandas as pd
+
+catalog = DataCatalog(
+    {
+        "basic_data": MemoryDataSet(),
+        "companies": MemoryDataSet(),
+        "reviews": MemoryDataSet(),
+        "shuttles": MemoryDataSet(),
+        "params:conversion_rate": MemoryDataSet(),
+    }
+)
+
+companies = pd.read_csv("data/01_raw/companies.csv")
+catalog.save("companies", companies)
+reviews = pd.read_csv("data/01_raw/reviews.csv")
+catalog.save("reviews", reviews)
+shuttles = pd.read_excel("data/01_raw/shuttles.xlsx")
+catalog.save("shuttles", shuttles)
+catalog.save("params:conversion_rate", 1.2)
 
 
-# def test_preproc_pipeline():
-#     runner = SequentialRunner()
-#     output_name = 'outputs'
+def test_preproc_pipeline():
+    runner = SequentialRunner()
+    output_name = "outputs"
 
-#     pipeline = create_pipeline(inputs='basic_data', outputs=output_name)
+    pipeline = create_pipeline()
+    # pipeline = create_pipeline(inputs="basic_data", outputs=output_name)
 
-#     pipeline_output = runner.run(pipeline, basic_catalog)
+    pipeline_output = runner.run(pipeline, catalog)
