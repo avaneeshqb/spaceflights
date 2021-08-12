@@ -17,7 +17,7 @@ def create_pipeline(**kwargs):
             ),
             node(
                 func=preprocess_shuttles,
-                inputs="shuttles",
+                inputs=["shuttles", "params:conversion_rate"],
                 outputs="preprocessed_shuttles",
                 name="preprocessing_shuttles",
             ),

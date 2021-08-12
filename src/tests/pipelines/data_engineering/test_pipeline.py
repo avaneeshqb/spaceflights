@@ -36,20 +36,21 @@ https://docs.pytest.org/en/latest/getting-started.html
 """
 
 
-# from kedro.runner import SequentialRunner
-# from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
+import logging
+from kedro.runner import SequentialRunner
+from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
 
-# from kedro.io import DataCatalog, MemoryDataSet
-# catalog = DataCatalog({
-#     'basic_data': MemoryDataSet()
-# })
-# catalog.save('basic_data', basic_data)
+logger = logging.getLogger(__name__)
 
 
-# def test_preproc_pipeline():
-#     runner = SequentialRunner()
-#     output_name = 'outputs'
+def test_de_pipeline(data_catalog):
+    runner = SequentialRunner()
 
-#     pipeline = create_pipeline(inputs='basic_data', outputs=output_name)
+    pipeline = create_pipeline()
 
-#     pipeline_output = runner.run(pipeline, basic_catalog)
+    pipeline_outputs = runner.run(pipeline, data_catalog)  # noqa
+    # Reference for multiple outputs
+    # master_table, shuttles_test = (
+    #     pipeline_outputs["master_table"],
+    #     pipeline_outputs["shuttles_test"],
+    # )

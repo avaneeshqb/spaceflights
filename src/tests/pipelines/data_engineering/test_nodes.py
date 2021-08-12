@@ -44,6 +44,7 @@ def test__parse_money():
 
 @pytest.fixture()
 def companies_raw():
+    """Mocker Companies Raw pandas Dataframe"""
     df = pd.DataFrame(
         {
             "iata_approved": ["t", "f", "t", "g"],
@@ -66,6 +67,7 @@ def test_preprocess_companies(companies_raw):
 
 @pytest.fixture()
 def shuttles_raw():
+    """Mocker shuttles Raw pandas Dataframe"""
     df = pd.DataFrame(
         {
             "d_check_complete": ["t", "f", "t", "t"],
@@ -77,12 +79,12 @@ def shuttles_raw():
 
 
 def test_preprocess_shuttles(shuttles_raw):
-    output = preprocess_shuttles(shuttles_raw)
+    output = preprocess_shuttles(shuttles_raw, 1.4)
     expected = pd.DataFrame(
         {
             "d_check_complete": [True, False, True, True],
             "moon_clearance_complete": [False, False, True, True],
-            "price": [1345.0, 1650.0, 6720.0, 1351.0],
+            "price": [i * 1.4 for i in [1345.0, 1650.0, 6720.0, 1351.0]],
         }
     )
     pd.testing.assert_frame_equal(output, expected)
