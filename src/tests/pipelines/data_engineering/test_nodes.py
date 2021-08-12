@@ -77,12 +77,12 @@ def shuttles_raw():
 
 
 def test_preprocess_shuttles(shuttles_raw):
-    output = preprocess_shuttles(shuttles_raw)
+    output = preprocess_shuttles(shuttles_raw, 1.4)
     expected = pd.DataFrame(
         {
             "d_check_complete": [True, False, True, True],
             "moon_clearance_complete": [False, False, True, True],
-            "price": [1345.0, 1650.0, 6720.0, 1351.0],
+            "price": [i * 1.4 for i in [1345.0, 1650.0, 6720.0, 1351.0]],
         }
     )
     pd.testing.assert_frame_equal(output, expected)

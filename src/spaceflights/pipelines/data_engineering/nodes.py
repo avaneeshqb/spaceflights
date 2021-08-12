@@ -32,7 +32,7 @@ def preprocess_companies(companies: pd.DataFrame) -> pd.DataFrame:
     return companies
 
 
-def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
+def preprocess_shuttles(shuttles: pd.DataFrame, conversion_rate: int) -> pd.DataFrame:
     """Preprocess the data for shuttles.
 
     Args:
@@ -47,7 +47,7 @@ def preprocess_shuttles(shuttles: pd.DataFrame) -> pd.DataFrame:
         _is_true
     )
 
-    shuttles["price"] = shuttles["price"].apply(_parse_money)
+    shuttles["price"] = shuttles["price"].apply(_parse_money) * conversion_rate
 
     return shuttles
 

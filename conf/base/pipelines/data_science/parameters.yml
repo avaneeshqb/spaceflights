@@ -3,3 +3,5 @@
 #
 # Documentation for this file format can be found in
 # https://kedro.readthedocs.io/en/stable/04_user_guide/03_configuration.html#parameters
+test_size: 0.2
+random_state: 3
