@@ -36,23 +36,21 @@ https://docs.pytest.org/en/latest/getting-started.html
 """
 
 
+import logging
 from kedro.runner import SequentialRunner
 from spaceflights.pipelines.data_engineering.pipeline import create_pipeline
-
-import pandas as pd
-import logging
 
 logger = logging.getLogger(__name__)
 
 
 def test_de_pipeline(data_catalog):
     runner = SequentialRunner()
-    output_name = "outputs"
 
     pipeline = create_pipeline()
-    # pipeline = create_pipeline(inputs="basic_data", outputs=output_name)
 
-    pipeline_output = runner.run(pipeline, data_catalog)
-    # logger.error("-----\n" * 5)
-    # logger.error(pipeline_output)
-
+    pipeline_outputs = runner.run(pipeline, data_catalog)  # noqa
+    # Reference for multiple outputs
+    # master_table, shuttles_test = (
+    #     pipeline_outputs["master_table"],
+    #     pipeline_outputs["shuttles_test"],
+    # )

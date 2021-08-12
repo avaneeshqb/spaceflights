@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
-from kedro.io import DataCatalog, MemoryDataSet
 from kedro.config import ConfigLoader
-from typing import Any, Dict, Iterable, Tuple, Union
+from kedro.io import DataCatalog, MemoryDataSet
+from typing import Any, Dict
 
 
 def get_feed_dict(params) -> Dict[str, Any]:
